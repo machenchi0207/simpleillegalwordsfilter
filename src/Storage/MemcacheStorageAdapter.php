@@ -63,15 +63,11 @@ class MemcacheStorageAdapter extends StorageAdapter
      */
     public function getRoot()
     {
-        $root = $this->cache->get($this->cachekey);
+        $root = unserialize($this->cache->get($this->cachekey));
         if(!$root)
         {
             $root = $this->builder->build();
-            $this->addRoot(serialize($root));
-        }
-        else
-        {
-            $root = unserialize($root);
+            $this->addRoot($root);
         }
         return $root;
     }
