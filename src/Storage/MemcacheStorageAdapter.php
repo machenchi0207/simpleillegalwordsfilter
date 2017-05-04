@@ -67,7 +67,11 @@ class MemcacheStorageAdapter extends StorageAdapter
         if(!$root)
         {
             $root = $this->builder->build();
-            $this->addRoot($root);
+            $this->addRoot(serialize($root));
+        }
+        else
+        {
+            $root = unserialize($root);
         }
         return $root;
     }
