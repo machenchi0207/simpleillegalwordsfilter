@@ -63,4 +63,12 @@ class Builder
         }
         return $root;
     }
+    
+    /**
+     * @param string $charset
+     */
+    public function setCharset($charset)
+    {
+        $this->charset = $charset;
+    }
 }
