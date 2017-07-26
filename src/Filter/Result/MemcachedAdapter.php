@@ -51,7 +51,7 @@ class MemcachedAdapter implements StorageAdapter
         if($this->namespace == false)
         {
             $namespace = rand(1,10000);
-            $this->namespace = $this->prefix.$this->namespaceKey.$namespace;
+            $this->namespace = $namespace;
             $this->cache->set($this->prefix.$this->namespaceKey,$namespace);
         }
         return $this->namespace;
