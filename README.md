@@ -15,3 +15,7 @@ $hint = $filter->hint($txt);
 echo $hint;
 //this will output 'simple';
 ```
+
+## Use it with Laravel
+
+Go to: [laravel-swif](https://github.com/vaxilicaihouxian/laravel-swif)
