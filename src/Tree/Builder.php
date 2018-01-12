@@ -22,8 +22,12 @@ class Builder
     /**
      * @var DicCollection
      */
-    protected $dics;
+    protected $dics=[];
 
+    /**
+     * @var WordsAdapter
+     */
+    protected $wordsAdapter;
     /**
      * @var string
      */
@@ -36,7 +40,7 @@ class Builder
      */
     public function __construct(WordsAdapter $adapter)
     {
-        $this->dics = $adapter->getWords();
+        $this->wordsAdapter = $adapter;
     }
 
     /**
@@ -44,6 +48,9 @@ class Builder
      */
     public function build()
     {
+        if(empty($this->dics)){
+            $this->dics = $this->wordsAdapter->getWords();
+        }
         $root = new TreeNode();
         foreach ($this->dics as $dic) {
             $node = $root;
